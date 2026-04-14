@@ -8,11 +8,46 @@
     <style>
         body, html { margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden; background-color: #ffffff; }
         model-viewer { width: 100%; height: 100%; background-color: #ffffff; }
+        
+        /* Contenitore per i pulsanti in basso */
+        .button-container {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Spazio tra i due bottoni */
+            width: 80%;
+            max-width: 300px;
+            z-index: 999;
+        }
+
+        /* Stile comune per entrambi i pulsanti */
+        .btn {
+            padding: 15px 20px;
+            border-radius: 30px;
+            border: none;
+            font-family: -apple-system, system-ui, sans-serif;
+            font-weight: bold;
+            font-size: 14px;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        /* Bottone AR (Rosso) */
         .ar-button {
-            position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%);
-            background-color: #a51d16; color: white; border: none; border-radius: 30px;
-            padding: 15px 35px; font-family: sans-serif; font-weight: bold;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 999;
+            background-color: #a51d16;
+            color: white;
+        }
+
+        /* Bottone Torna all'App (Nero) */
+        .back-button {
+            background-color: #000000;
+            color: white;
         }
     </style>
 </head>
@@ -28,9 +63,15 @@
         ar-placement="floor"
         touch-action="none">
 
-        <button class="ar-button" slot="ar-button">
-            AVVIA SCANSIONE AR
-        </button>
+        <div class="button-container">
+            <button class="btn ar-button" slot="ar-button">
+                AVVIA SCANSIONE AR
+            </button>
+
+            <a href="https://www.figma.com/proto/9CkrlHtxnngcq6F3SC7cq6/Untitled?node-id=1-21&p=f&viewport=357%2C113%2C0.21&t=lRlajwYAnK5oAMy9-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1" class="btn back-button">
+                TORNA ALL'APP
+            </a>
+        </div>
 
     </model-viewer>
 
